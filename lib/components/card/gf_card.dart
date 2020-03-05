@@ -124,13 +124,13 @@ class GFCard extends StatelessWidget {
                     child: image,
                   )
                 : Container(),
-        titlePosition == GFPosition.start
-            ? image ?? Container()
-            : title ?? Container(),
         Padding(
           padding: padding,
           child: content ?? Container(),
         ),
+        titlePosition == GFPosition.start
+            ? image ?? Container()
+            : title ?? Container(),
         buttonBar ?? Container(),
       ],
     );
