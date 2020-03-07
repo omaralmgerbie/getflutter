@@ -19,7 +19,7 @@ class GFImageOverlay extends StatelessWidget {
     this.colorFilter =
         const ColorFilter.mode(Colors.black26, BlendMode.colorBurn),
     this.boxFit,
-    this.fit,
+    this.imageBoxFit,
     this.border,
     this.shape = BoxShape.rectangle,
   })  : assert(shape != null),
@@ -82,7 +82,7 @@ class GFImageOverlay extends StatelessWidget {
   ///
   /// The default varies based on the other fields. See the discussion at
   /// [paintImage].
-  final BoxFit fit;
+  final BoxFit imageBoxFit;
 
   @override
   Widget build(BuildContext context) => Container(
@@ -98,7 +98,7 @@ class GFImageOverlay extends StatelessWidget {
           border: border,
           color: color,
           image: DecorationImage(
-            fit: fit??BoxFit.fill,
+            fit: imageBoxFit??BoxFit.fill,
             colorFilter: child != null ? colorFilter : null,
             image: image,
           ),
