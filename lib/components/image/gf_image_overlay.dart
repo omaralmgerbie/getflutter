@@ -19,6 +19,7 @@ class GFImageOverlay extends StatelessWidget {
     this.colorFilter =
         const ColorFilter.mode(Colors.black26, BlendMode.colorBurn),
     this.boxFit,
+    this.fit,
     this.border,
     this.shape = BoxShape.rectangle,
   })  : assert(shape != null),
@@ -77,6 +78,12 @@ class GFImageOverlay extends StatelessWidget {
   /// {@macro flutter.painting.boxDecoration.clip}
   final BoxShape shape;
 
+  /// How to inscribe the image into the space allocated during layout.
+  ///
+  /// The default varies based on the other fields. See the discussion at
+  /// [paintImage].
+  final BoxFit fit;
+
   @override
   Widget build(BuildContext context) => Container(
         alignment: alignment,
@@ -91,7 +98,7 @@ class GFImageOverlay extends StatelessWidget {
           border: border,
           color: color,
           image: DecorationImage(
-            fit: BoxFit.fill,
+            fit: fit??BoxFit.fill,
             colorFilter: child != null ? colorFilter : null,
             image: image,
           ),
